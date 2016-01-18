@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
-		
+
 		<!-- plugin versions -->
 		<version.compiler.plugin>2.3.1</version.compiler.plugin>
 	</properties>
@@ -34,4 +34,26 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<modules>
+		<module>jboss-fuse-fabric</module>
+	</modules>
+
+	<repositories>
+		<repository>
+			<id>jboss-releases-repo</id>
+			<name>JBoss Releases Repo</name>
+			<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2</url>
+		</repository>
+		<repository>
+			<id>jboss.ea</id>
+			<name>JBoss Early Adopter</name>
+			<url>http://origin-repository.jboss.org/nexus/content/groups/ea/</url>
+		</repository>
+		<repository>
+			<id>jboss.fuse</id>
+			<name>JBoss Fuse Public</name>
+			<url>https://repo.fusesource.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
 </project>
