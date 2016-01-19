@@ -46,12 +46,16 @@
 			<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2</url>
 		</repository>
 		<repository>
-			<id>jboss.ea</id>
+			<id>jboss-ea</id>
 			<name>JBoss Early Adopter</name>
 			<url>http://origin-repository.jboss.org/nexus/content/groups/ea/</url>
 		</repository>
 		<repository>
-			<id>jboss.fuse</id>
+			<id>jboss-fuse-ea</id>
+			<url>https://repository.jboss.org/nexus/content/groups/ea/</url>
+		</repository>
+		<repository>
+			<id>jboss-fuse</id>
 			<name>JBoss Fuse Public</name>
 			<url>https://repo.fusesource.com/nexus/content/groups/public/</url>
 		</repository>

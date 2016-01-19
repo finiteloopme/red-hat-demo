@@ -3,7 +3,6 @@
  */
 package me.finiteloop.redhat.demo.fabric.fuse.twitter;
 
-import org.apache.camel.Main;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.properties.PropertiesComponent;
 
@@ -13,7 +12,6 @@ import org.apache.camel.component.properties.PropertiesComponent;
  */
 public class SearchTwitterRoute extends RouteBuilder {
 
-	
 	@Override
 	public void configure() throws Exception {
 		
@@ -21,8 +19,8 @@ public class SearchTwitterRoute extends RouteBuilder {
 		pc.setLocation("classpath:twitter.properties");
 		getContext().addComponent("properties", pc);
 
-		from
-		("twitter://search?type=polling&"
+		from("direct:search-twitter")
+		.to("twitter://search?type=polling&"
 				+ "delay={{twitter.search.delay}}&"
 				+ "keywords={{twitter.search.criteria}}&"
 				+ "accessToken={{twitter.access.token}}&"
@@ -30,14 +28,9 @@ public class SearchTwitterRoute extends RouteBuilder {
 				+ "consumerKey={{twitter.consumer.key}}&"
 				+ "consumerSecret={{twitter.consumer.secret}}"
 				+ "")
-		.log("${body}");
+		.log("${body}")
+		.to("direct:save-message");
+		
 	}
 
-	public static void main(String args[]) throws Exception{
-		Main main = new Main();
-		main.enableHangupSupport();
-		main.addRouteBuilder(new SearchTwitterRoute());
-		//main.start();
-		main.run();
- 	}
 }

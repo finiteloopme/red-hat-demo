@@ -8,9 +8,22 @@
 		<artifactId>jboss-fuse-fabric</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+	
 	<artifactId>search-twitter-feed</artifactId>
 	<name>Search Twitter Feed</name>
 	<description>A module to filter the tweets for a specific search criteria</description>
+
+	<!-- <packaging>bundle</packaging> -->
+
+	<properties>
+		<!-- fabric8 deploy profile configuration -->
+		<fabric8.profile>gpe-fuse</fabric8.profile>
+		<fabric8.parentProfiles>feature-camel</fabric8.parentProfiles>
+		<!-- <fabric8.bundles>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.json/20140107_1 
+			</fabric8.bundles> -->
+		<fabric8.features>camel-twitter camel-jetty camel-jackson
+			camel-bindy camel-http4</fabric8.features>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -20,7 +33,6 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-twitter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
@@ -29,6 +41,10 @@
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
