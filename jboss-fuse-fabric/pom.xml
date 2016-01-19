@@ -37,4 +37,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<modules>
+		<module>search-twitter-feed</module>
+	</modules>
 </project>
